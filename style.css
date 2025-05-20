@@ -1,0 +1,242 @@
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+}
+
+#container {
+    background: white;
+    padding: 2rem;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    max-width: 800px;
+    width: 90%;
+}
+
+h1{
+    font-size: 4rem;
+    color: #ff005e;
+    text-align: center;
+    margin-top: 20px;
+    text-shadow: 2px 2px 0 #00d4ff, 4px 4px 0 #ff005e;
+}
+.shadow-dance-text {
+    font-size: 4rem;
+    color: #000000;
+    text-shadow: 5px 5px 0 #ff005e, 10px 10px 0 #00d4ff;
+    animation: shadow-dance 2s infinite;
+}
+
+@keyframes shadow-dance {
+    0%, 100% {
+        text-shadow: 5px 5px 0 #ff005e, 10px 10px 0 #00d4ff;
+    }
+    50% {
+        text-shadow: -5px -5px 0 #00d4ff, -10px -10px 0 #ff005e;
+    }
+}
+
+.mood-picker {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 15px;
+}
+
+.mood {
+    font-size: 40px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    padding: 15px;
+    border-radius: 50%;
+    background: white;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.mood:hover {
+    transform: scale(1.2);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+.mood.active {
+    transform: scale(1.1);
+    background: #f0f0f0;
+    box-shadow: 0 0 0 3px #ff005e;
+}
+
+.selected-mood {
+    margin-top: 10px;
+    font-size: 18px;
+    color: #333;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    padding: 6px;
+    border-radius: 8px;
+    background: #f8f9fa;
+    text-align: center;
+}
+
+.cursor{
+    position: relative;
+    width: 24em;
+    margin: 0 auto;
+    border-right: 2px solid rgba(0, 0, 0, 0.75);
+    font-size: 30px;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    transform: translateY(-50%);    
+}
+/* Animation */
+.typewriter-animation {
+  animation: 
+    typewriter 5s steps(30) 1s 1 normal both, 
+    blinkingCursor 500ms steps(30) infinite normal;
+}
+@keyframes typewriter {
+  from { width: 0; }
+  to { width: 100%; }
+}
+@keyframes blinkingCursor{
+  from { border-right-color: rgba(11, 11, 11, 0.75); }
+  to { border-right-color: transparent; }
+}
+
+.calendar-container {
+    margin-top: 20px;
+    background: white;
+    border-radius: 12px;
+    padding: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    width: 420px;
+    height: 420px;
+    max-width: 98vw;
+    max-height: 98vw;
+    margin-left: auto;
+    margin-right: auto;
+    overflow: hidden;
+}
+
+.calendar-header {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.calendar-header h3 {
+    color: #333;
+    font-size: 1.3rem;
+    margin: 0;
+}
+
+.calendar-grid {
+    width: 100%;
+}
+
+.weekdays {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 2px;
+    margin-bottom: 4px;
+    background: #f8f9fa;
+    padding: 4px;
+    border-radius: 8px;
+}
+
+.weekdays div {
+    text-align: center;
+    font-weight: bold;
+    color: #666;
+    padding: 2px;
+    font-size: 1rem;
+}
+
+.days {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 2px;
+    padding: 4px;
+}
+
+.day {
+    width: 48px;
+    height: 48px;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    background: white;
+    min-height: unset;
+    min-width: unset;
+    box-sizing: border-box;
+}
+
+.day.empty {
+    border: none;
+    background: none;
+}
+
+.day.today {
+    background: #f0f0f0;
+    border-color: #ff005e;
+}
+
+.date {
+    font-size: 1rem;
+    color: #666;
+    margin-bottom: 0;
+}
+
+.day-mood {
+    font-size: 1.5rem;
+    margin-top: 0;
+    display: block;
+    line-height: 1;
+}
+
+.selected-mood {
+    margin-top: 10px;
+    font-size: 18px;
+    color: #333;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    padding: 6px;
+    border-radius: 8px;
+    background: #f8f9fa;
+    text-align: center;
+}
+
+@media (max-width: 500px) {
+  .calendar-container {
+    width: 98vw;
+    height: 98vw;
+    min-width: 0;
+    min-height: 0;
+    padding: 2vw;
+  }
+  .calendar-header h3 {
+    font-size: 1rem;
+  }
+  .day-mood {
+    font-size: 1.1rem;
+  }
+  .date {
+    font-size: 0.85rem;
+  }
+  .day {
+    width: 32px;
+    height: 32px;
+  }
+}
